@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="UI.GUI">
+  <grid id="27dc6" binding="root" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="760" height="400"/>
+    </constraints>
+    <properties>
+      <opaque value="true"/>
+      <preferredSize width="1000" height="780"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <splitpane id="e21b8">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="200"/>
+          </grid>
+        </constraints>
+        <properties>
+          <dividerLocation value="43"/>
+          <dividerSize value="5"/>
+          <orientation value="0"/>
+        </properties>
+        <border type="none" title="Menu"/>
+        <children>
+          <splitpane id="ed8c4">
+            <constraints>
+              <splitpane position="right"/>
+            </constraints>
+            <properties>
+              <dividerLocation value="700"/>
+              <dividerSize value="5"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <splitpane id="5f176">
+                <constraints>
+                  <splitpane position="left"/>
+                </constraints>
+                <properties>
+                  <continuousLayout value="false"/>
+                  <dividerLocation value="275"/>
+                  <dividerSize value="5"/>
+                  <orientation value="0"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <splitpane id="95575">
+                    <constraints>
+                      <splitpane position="right"/>
+                    </constraints>
+                    <properties>
+                      <dividerLocation value="200"/>
+                    </properties>
+                    <border type="none" title="Output Dialogs"/>
+                    <children>
+                      <splitpane id="d190a">
+                        <constraints>
+                          <splitpane position="right"/>
+                        </constraints>
+                        <properties>
+                          <dividerLocation value="200"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <scrollpane id="24405" binding="JscrollPaneIDf">
+                            <constraints>
+                              <splitpane position="left"/>
+                            </constraints>
+                            <properties>
+                              <verticalScrollBarPolicy value="22"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="7085a" class="javax.swing.JTextPane" binding="infoPanelIDF" default-binding="true">
+                                <constraints/>
+                                <properties>
+                                  <background color="-16777216"/>
+                                  <editable value="false"/>
+                                  <foreground color="-15877310"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </scrollpane>
+                          <scrollpane id="41375" binding="JscrollPaneTFIDF">
+                            <constraints>
+                              <splitpane position="right"/>
+                            </constraints>
+                            <properties>
+                              <verticalScrollBarPolicy value="22"/>
+                            </properties>
+                            <border type="none"/>
+                            <children>
+                              <component id="b1bf1" class="javax.swing.JTextPane" binding="infoPanelTFIDF" default-binding="true">
+                                <constraints/>
+                                <properties>
+                                  <background color="-16777216"/>
+                                  <editable value="false"/>
+                                  <foreground color="-15877310"/>
+                                </properties>
+                              </component>
+                            </children>
+                          </scrollpane>
+                        </children>
+                      </splitpane>
+                      <scrollpane id="b5935" binding="JscrollPaneBow">
+                        <constraints>
+                          <splitpane position="left"/>
+                        </constraints>
+                        <properties>
+                          <verticalScrollBarPolicy value="22"/>
+                        </properties>
+                        <border type="none"/>
+                        <children>
+                          <component id="8ff3e" class="javax.swing.JTextPane" binding="infoPanelBOW" default-binding="true">
+                            <constraints/>
+                            <properties>
+                              <background color="-16777216"/>
+                              <editable value="false"/>
+                              <foreground color="-15877310"/>
+                            </properties>
+                          </component>
+                        </children>
+                      </scrollpane>
+                    </children>
+                  </splitpane>
+                  <scrollpane id="cea71">
+                    <constraints>
+                      <splitpane position="left"/>
+                    </constraints>
+                    <properties/>
+                    <border type="none"/>
+                    <children>
+                      <component id="400e5" class="javax.swing.JEditorPane" binding="inputTextBox" default-binding="true">
+                        <constraints/>
+                        <properties>
+                          <background color="-4477815"/>
+                          <foreground color="-2342"/>
+                        </properties>
+                      </component>
+                    </children>
+                  </scrollpane>
+                </children>
+              </splitpane>
+              <scrollpane id="a68dc">
+                <constraints>
+                  <splitpane position="right"/>
+                </constraints>
+                <properties/>
+                <border type="none" title="Trace"/>
+                <children>
+                  <component id="d427c" class="javax.swing.JTextPane" binding="systemOutput">
+                    <constraints/>
+                    <properties>
+                      <background color="-4801606"/>
+                      <editable value="false"/>
+                      <maximumSize width="250" height="2147483647"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+            </children>
+          </splitpane>
+          <component id="f271" class="javax.swing.JMenuBar" binding="menu" custom-create="true">
+            <constraints>
+              <splitpane position="left"/>
+            </constraints>
+            <properties>
+              <alignmentX value="1.0"/>
+              <alignmentY value="1.0"/>
+              <maximumSize width="0" height="50"/>
+            </properties>
+          </component>
+        </children>
+      </splitpane>
+      <component id="400a5" class="javax.swing.JProgressBar" binding="progressBar1" default-binding="true">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+      </component>
+    </children>
+  </grid>
+</form>
