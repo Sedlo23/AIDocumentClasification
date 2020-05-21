@@ -29,6 +29,12 @@ public class NaiveBayesTFIDF implements ILearningAlgorithm
         this.trainedClasses = trainedClasses;
     }
 
+    /**
+     * Gets string output.
+     *
+     * @param input the input
+     * @return the string output
+     */
     public String getStringOutput(String input)
     {
 
@@ -86,6 +92,12 @@ public class NaiveBayesTFIDF implements ILearningAlgorithm
         return Text.formatOutput(output,this.getClass().getSimpleName());
     }
 
+    /**
+     * Gets accuracy with lab format.
+     *
+     * @param input the input
+     * @return the accuracy with lab format
+     */
     public double getAccuracyWithLabFormat(String input)
     {
 

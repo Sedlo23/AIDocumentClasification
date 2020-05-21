@@ -1,5 +1,6 @@
-package Classification.Algorithms;
+package Classification.Builders;
 
+import Classification.Algorithms.NaiveBayesTFIDF;
 import Parametrization.TFIDF.TFIDF;
 
 import java.util.ArrayList;

@@ -29,6 +29,12 @@ public class CustomIDF implements ILearningAlgorithm
         this.trainedClasses = trainedClasses;
     }
 
+    /**
+     * Gets string output.
+     *
+     * @param input the input
+     * @return the string output
+     */
     public String getStringOutput(String input)
     {
 
@@ -55,7 +61,6 @@ public class CustomIDF implements ILearningAlgorithm
                     if (w.getValue().equals(key))
                     {
 
-
                         bag1.setWeight(bag1.getWeight()+Math.pow(2,w.getFreq()));
 
                         bag1.setFileCount(bag1.getFileCount()+1);
@@ -73,14 +78,11 @@ public class CustomIDF implements ILearningAlgorithm
         }
 
 
-        trainedClasses.sort(new Comparator<IDF>() {
-            @Override
-            public int compare(IDF idf, IDF t1) {
-                if (idf.getWeight()>t1.getWeight())
-                        return -1;
-                    else
-                        return 1;
-            }
+        trainedClasses.sort((idf, t1) -> {
+            if (idf.getWeight()>t1.getWeight())
+                    return -1;
+                else
+                    return 1;
         });
 
         String[] output=new String[trainedClasses.size()];
@@ -93,6 +95,12 @@ public class CustomIDF implements ILearningAlgorithm
         return Text.formatOutput(output,this.getClass().getSimpleName());
     }
 
+    /**
+     * Gets accuracy with lab format.
+     *
+     * @param input the input
+     * @return the accuracy with lab format
+     */
     public double getAccuracyWithLabFormat(String input)
     {
 
@@ -179,5 +187,7 @@ public class CustomIDF implements ILearningAlgorithm
         }
 
     }
+
+
 
 }
