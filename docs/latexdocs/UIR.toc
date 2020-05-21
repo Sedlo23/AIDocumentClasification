@@ -1,0 +1,25 @@
+\babel@toc {czech}{}
+\contentsline {section}{\numberline {1}Problematika}{3}{section.1}% 
+\contentsline {subsection}{\numberline {1.1}Zadání}{3}{subsection.1.1}% 
+\contentsline {paragraph}{}{3}{section*.2}% 
+\contentsline {subsection}{\numberline {1.2}Analýza}{3}{subsection.1.2}% 
+\contentsline {paragraph}{}{3}{section*.3}% 
+\contentsline {subsubsection}{\numberline {1.2.1}Zvolený programovací jazyk}{3}{subsubsection.1.2.1}% 
+\contentsline {paragraph}{}{3}{section*.4}% 
+\contentsline {paragraph}{}{3}{section*.5}% 
+\contentsline {paragraph}{}{3}{section*.6}% 
+\contentsline {subsubsection}{\numberline {1.2.2}Algoritmy}{4}{subsubsection.1.2.2}% 
+\contentsline {paragraph}{Najivní Bayes}{4}{section*.7}% 
+\contentsline {paragraph}{K-NN}{4}{section*.11}% 
+\contentsline {subsubsection}{\numberline {1.2.3}Implementace}{5}{subsubsection.1.2.3}% 
+\contentsline {section}{\numberline {2}Testování}{8}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}Testovací data}{8}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}Postup}{9}{subsection.2.2}% 
+\contentsline {subsubsection}{\numberline {2.2.1}Přesnost}{9}{subsubsection.2.2.1}% 
+\contentsline {subsection}{\numberline {2.3}Výsledky}{9}{subsection.2.3}% 
+\contentsline {subsubsection}{\numberline {2.3.1}Korpus}{9}{subsubsection.2.3.1}% 
+\contentsline {subsubsection}{\numberline {2.3.2}Wiki jazyky}{10}{subsubsection.2.3.2}% 
+\contentsline {subsubsection}{\numberline {2.3.3}NovinkyCZ}{10}{subsubsection.2.3.3}% 
+\contentsline {subsubsection}{\numberline {2.3.4}Reuters}{10}{subsubsection.2.3.4}% 
+\contentsline {section}{\numberline {3}Uživatelská příručka}{11}{section.3}% 
+\contentsline {section}{\numberline {4}Závěr}{13}{section.4}% 

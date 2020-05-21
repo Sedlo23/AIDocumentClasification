@@ -1,0 +1,11 @@
+module:UirSem
+Classification.Algorithms
+Classification.Builders
+Classification.Interfaces
+Parametrization
+Parametrization.IDF
+Parametrization.TFIDF
+Tools
+UI
+UI.BackgroundWorkers
+UI.Wizards
