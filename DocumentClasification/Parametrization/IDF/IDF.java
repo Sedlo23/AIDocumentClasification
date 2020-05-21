@@ -1,7 +1,7 @@
 package Parametrization.IDF;
 
 
-import Parametrization.BagOfWords;
+import Parametrization.BagOfWorld.BagOfWords;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -36,7 +36,6 @@ public class IDF
 
         this.bagsOfWords=bagsOfWords;
 
-        
         this.name=name;
 
         wordsSets= new WordsSets(name);

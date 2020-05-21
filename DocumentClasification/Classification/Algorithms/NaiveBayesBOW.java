@@ -2,7 +2,7 @@ package Classification.Algorithms;
 
 
 import Classification.Interfaces.ILearningAlgorithm;
-import Parametrization.BagOfWords;
+import Parametrization.BagOfWorld.BagOfWords;
 import Tools.Text;
 
 import java.util.ArrayList;

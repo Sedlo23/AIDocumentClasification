@@ -1,4 +1,4 @@
-package Parametrization;
+package Parametrization.BagOfWorld;
 
 import java.util.HashMap;
 

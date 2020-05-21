@@ -1,7 +1,7 @@
 package Parametrization.TFIDF;
 
 
-import Parametrization.BagOfWords;
+import Parametrization.BagOfWorld.BagOfWords;
 import Parametrization.IDF.Word;
 import Parametrization.IDF.WordsSets;
 

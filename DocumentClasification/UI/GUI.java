@@ -2,7 +2,7 @@ package UI;
 
 import Classification.Algorithms.*;
 import Classification.Builders.*;
-import Parametrization.BagOfWords;
+import Parametrization.BagOfWorld.BagOfWords;
 import Parametrization.IDF.IDF;
 import Parametrization.IDF.Word;
 import Parametrization.TFIDF.TFIDF;

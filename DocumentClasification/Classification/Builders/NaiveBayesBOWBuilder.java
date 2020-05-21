@@ -1,7 +1,7 @@
 package Classification.Builders;
 
 import Classification.Algorithms.NaiveBayesBOW;
-import Parametrization.BagOfWords;
+import Parametrization.BagOfWorld.BagOfWords;
 
 import java.util.ArrayList;
 

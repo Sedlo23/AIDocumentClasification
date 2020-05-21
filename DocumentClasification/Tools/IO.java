@@ -1,6 +1,6 @@
 package Tools;
 
-import Parametrization.BagOfWords;
+import Parametrization.BagOfWorld.BagOfWords;
 import Parametrization.IDF.IDF;
 import Parametrization.TFIDF.TFIDF;
 
@@ -17,6 +17,7 @@ import java.util.ArrayList;
  */
 public class IO
 {
+
 
     /**
      * Load bag of words array list.
