@@ -10,7 +10,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 
 /**
- * The type Naive bayes bow.
+ * The type Naive bayes BackgroundWorkerBOW.
  */
 public class NaiveBayesBOW implements ILearningAlgorithm
 {
@@ -18,7 +18,7 @@ public class NaiveBayesBOW implements ILearningAlgorithm
     private final ArrayList<BagOfWords> trainedClasses;
 
     /**
-     * Instantiates a new Naive bayes bow.
+     * Instantiates a new Naive bayes BackgroundWorkerBOW.
      *
      * @param trainedClasses the trained classes
      */

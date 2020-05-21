@@ -8,6 +8,9 @@ import Parametrization.IDF.WordsSets;
 import java.util.ArrayList;
 import java.util.Map;
 
+/**
+ * The type Tfidf.
+ */
 public class TFIDF
 {
 
@@ -22,6 +25,12 @@ public class TFIDF
     private  double fileCount;
 
 
+    /**
+     * Instantiates a new Tfidf.
+     *
+     * @param bagsOfWords the bags of words
+     * @param name        the name
+     */
     public TFIDF(ArrayList<BagOfWords> bagsOfWords, String name)
     {
         this.setFileCount(0);
@@ -90,26 +99,56 @@ public class TFIDF
 
     }
 
+    /**
+     * Gets words sets.
+     *
+     * @return the words sets
+     */
     public WordsSets getWordsSets() {
         return wordsSets;
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Gets weight.
+     *
+     * @return the weight
+     */
     public double getWeight() {
         return weight;
     }
 
+    /**
+     * Sets weight.
+     *
+     * @param weight the weight
+     */
     public void setWeight(double weight) {
         this.weight = weight;
     }
 
+    /**
+     * Gets file count.
+     *
+     * @return the file count
+     */
     public double getFileCount() {
         return fileCount;
     }
 
+    /**
+     * Sets file count.
+     *
+     * @param fileCount the file count
+     */
     public void setFileCount(double fileCount) {
         this.fileCount = fileCount;
     }

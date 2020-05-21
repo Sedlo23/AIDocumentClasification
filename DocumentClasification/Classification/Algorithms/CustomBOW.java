@@ -10,7 +10,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 
 /**
- * The type Custom bow.
+ * The type Custom BackgroundWorkerBOW.
  */
 public class CustomBOW implements ILearningAlgorithm
 {
@@ -18,7 +18,7 @@ public class CustomBOW implements ILearningAlgorithm
     private final ArrayList<BagOfWords> TrainedClasses;
 
     /**
-     * Instantiates a new Custom bow.
+     * Instantiates a new Custom BackgroundWorkerBOW.
      *
      * @param TrainedClasses the trained classes
      */

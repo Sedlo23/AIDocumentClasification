@@ -22,8 +22,9 @@ public class IO
     /**
      * Load bag of words array list.
      *
-     * @param trainData the train data
-     * @param classes   the classes
+     * @param trainData   the train data
+     * @param classes     the classes
+     * @param progressBar the progress bar
      * @return the array list
      * @throws IOException the io exception
      */
@@ -73,10 +74,11 @@ public class IO
     }
 
     /**
-     * Load idf array list.
+     * Load BackgroundWorkerIDF array list.
      *
-     * @param trainData the train data
-     * @param classes   the classes
+     * @param trainData   the train data
+     * @param classes     the classes
+     * @param progressBar the progress bar
      * @return the array list
      * @throws IOException the io exception
      */
@@ -143,10 +145,11 @@ public class IO
     }
 
     /**
-     * Load tfidf array list.
+     * Load BackgroundWorkerTFIDF array list.
      *
-     * @param trainData the train data
-     * @param classes   the classes
+     * @param trainData   the train data
+     * @param classes     the classes
+     * @param progressBar the progress bar
      * @return the array list
      * @throws IOException the io exception
      */

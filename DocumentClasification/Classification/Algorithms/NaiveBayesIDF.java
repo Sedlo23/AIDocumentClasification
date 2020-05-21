@@ -12,7 +12,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 
 /**
- * The type Naive bayes idf.
+ * The type Naive bayes BackgroundWorkerIDF.
  */
 public class NaiveBayesIDF implements ILearningAlgorithm
 {
@@ -20,7 +20,7 @@ public class NaiveBayesIDF implements ILearningAlgorithm
     private final ArrayList<IDF> trainedClasses;
 
     /**
-     * Instantiates a new Naive bayes idf.
+     * Instantiates a new Naive bayes BackgroundWorkerIDF.
      *
      * @param trainedClasses the trained classes
      */

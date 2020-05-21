@@ -12,7 +12,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 
 /**
- * The type Custom idf.
+ * The type Custom BackgroundWorkerIDF.
  */
 public class CustomIDF implements ILearningAlgorithm
 {
@@ -20,7 +20,7 @@ public class CustomIDF implements ILearningAlgorithm
     private final ArrayList<IDF> trainedClasses;
 
     /**
-     * Instantiates a new Custom idf.
+     * Instantiates a new Custom BackgroundWorkerIDF.
      *
      * @param trainedClasses the trained classes
      */

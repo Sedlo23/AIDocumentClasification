@@ -12,7 +12,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 
 /**
- * The type Custom tfidf.
+ * The type Custom BackgroundWorkerTFIDF.
  */
 public class CustomTFIDF implements ILearningAlgorithm
 {
@@ -20,7 +20,7 @@ public class CustomTFIDF implements ILearningAlgorithm
     private final ArrayList<TFIDF> trainedClasses;
 
     /**
-     * Instantiates a new Custom tfidf.
+     * Instantiates a new Custom BackgroundWorkerTFIDF.
      *
      * @param trainData the train data
      */

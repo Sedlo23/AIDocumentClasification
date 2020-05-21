@@ -59,6 +59,16 @@ public class Text
 
     }
 
+    /**
+     * Convert sgm array list.
+     *
+     * @param fileXML the file xml
+     * @param Classes the classes
+     * @return the array list
+     * @throws ParserConfigurationException the parser configuration exception
+     * @throws IOException                  the io exception
+     * @throws SAXException                 the sax exception
+     */
     public static ArrayList<File> convertSgm(File fileXML,String[] Classes) throws ParserConfigurationException, IOException, SAXException {
 
         ArrayList<File> fileArrayList=new ArrayList<>();

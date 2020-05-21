@@ -8,7 +8,10 @@ import Parametrization.IDF.Word;
 import Parametrization.TFIDF.TFIDF;
 import Tools.IO;
 import Tools.Text;
-import UI.BackgroundWorkers.*;
+import UI.BackgroundWorkers.ACCTesting.*;
+import UI.BackgroundWorkers.Generators.BackgroundWorkerBOW;
+import UI.BackgroundWorkers.Generators.BackgroundWorkerIDF;
+import UI.BackgroundWorkers.Generators.BackgroundWorkerTFIDF;
 import org.xml.sax.SAXException;
 
 
@@ -63,28 +66,28 @@ public class GUI {
     private Boolean continuesBayesCheckBox = false;
 
     /**
-     * The Custom tfidf.
+     * The Custom BackgroundWorkerTFIDF.
      */
     private CustomTFIDF customTFIDF;
     /**
-     * The Custom idf.
+     * The Custom BackgroundWorkerIDF.
      */
     private CustomIDF customIDF;
     /**
-     * The Custom bow.
+     * The Custom BackgroundWorkerBOW.
      */
     private CustomBOW customBOW;
 
     /**
-     * The Naive bayes idf.
+     * The Naive bayes BackgroundWorkerIDF.
      */
     private NaiveBayesIDF naiveBayesIDF;
     /**
-     * The Naive bayes tfidf.
+     * The Naive bayes BackgroundWorkerTFIDF.
      */
     private NaiveBayesTFIDF naiveBayesTFIDF;
     /**
-     * The Naive bayes bow.
+     * The Naive bayes BackgroundWorkerBOW.
      */
     private NaiveBayesBOW naiveBayesBOW;
 
@@ -226,6 +229,13 @@ if (continuesBayesCheckBox){
             systemOutput.setText(systemOutput.getText()+"Real time testing status: "+continuesBayesCheckBox+"\n");
         });
 
+        JMenuItem rr = new JMenuItem("Clear Track");
+        rr.addActionListener((event) ->{
+          systemOutput.setText("");
+        });
+
+        s.add(rr);
+
         s.add(cca);
 
         s.add(exit);
@@ -301,19 +311,19 @@ if (continuesBayesCheckBox){
         JMenuItem bagofwordsC = new JMenuItem("Learn by [Bag of Words]");
         bagofwordsC.setToolTipText("Learn by Bag of words method");
         bagofwordsC.addActionListener((event) -> {
-            new bow(this).execute();
+            new BackgroundWorkerBOW(this).execute();
         });
 
         JMenuItem idfC = new JMenuItem("Learn by  [IDF]");
         idfC.setToolTipText("Learn by TFIDF method");
         idfC.addActionListener((event) -> {
-            new idf(this).execute();
+            new BackgroundWorkerIDF(this).execute();
         });
 
         JMenuItem tfidfC = new JMenuItem("Learn by  [TFIDF]");
         tfidfC.setToolTipText("Learn by TFIDF method");
         tfidfC.addActionListener((event) -> {
-            new tfidf(this).execute();
+            new BackgroundWorkerTFIDF(this).execute();
         });
 
         JMenuItem tttt = new JMenuItem("Read Test data");
@@ -381,37 +391,37 @@ if (continuesBayesCheckBox){
 
         JMenuItem nav2 = new JMenuItem("Naive Bayes [Accuracy Test] [ALL]");
         nav2.addActionListener((event) -> {
-            new nav2B(this).execute();
+            new BackgroundWorkerNaiveBayesALL(this).execute();
         });
         JMenuItem nav21 = new JMenuItem("   - [BOW]");
         nav21.addActionListener((event) -> {
-            new nav21B(this).execute();
+            new BackgroundWorkerNaiveBayesBOW(this).execute();
         });
         JMenuItem nav22 = new JMenuItem("   - [IDF]");
         nav22.addActionListener((event) -> {
-            new nav22B(this).execute();
+            new BackgroundWorkerNaiveBayesIDF(this).execute();
         });
         JMenuItem nav23 = new JMenuItem("   - [TFIDF]");
         nav23.addActionListener((event) -> {
-            new nav23B(this).execute();
+            new BackgroundWorkerNaiveBayesTFIDF(this).execute();
         });
 
         JMenuItem cus2 = new JMenuItem("Sedlo Algorithm [Accuracy Test] [ALL]");
         cus2.addActionListener((event) -> {
-            new cus2B(this).execute();
+            new BackgroundWorkerCustomALL(this).execute();
         });
         JMenuItem cus21 = new JMenuItem("   - [BOW]");
         cus21.addActionListener((event) -> {
-            new cus21B(this).execute();
+            new BackgroundWorkerCustomBOW(this).execute();
         });
         JMenuItem cus22 = new JMenuItem("   - [IDF]");
         cus22.addActionListener((event) -> {
-            new cus22B(this).execute();
+            new BackgroundWorkerCustomIDF(this).execute();
         });
         JMenuItem cus23 = new JMenuItem("   - [TFIDF]");
         cus23.addActionListener((event) -> {
             try {
-                new cus23B(this).execute();
+                new BackgroundWorkerCustomTFIDF(this).execute();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -512,6 +522,8 @@ if (continuesBayesCheckBox){
     /**
      * Load classes.
      *
+     * @param path     the path
+     * @param splitter the splitter
      * @throws IOException the io exception
      */
     public void loadClasses(String path,String splitter) throws IOException {
@@ -542,6 +554,9 @@ if (continuesBayesCheckBox){
      * Load train files array list.
      *
      * @return the array list
+     * @throws IOException                  the io exception
+     * @throws SAXException                 the sax exception
+     * @throws ParserConfigurationException the parser configuration exception
      */
     public  ArrayList<File> loadTrainFiles() throws IOException, SAXException, ParserConfigurationException {
         ArrayList<File> trainData=new ArrayList<>();
@@ -597,6 +612,7 @@ if (continuesBayesCheckBox){
     /**
      * Load train files array list.
      *
+     * @param path the path
      * @return the array list
      */
     public  ArrayList<File> loadTrainFiles(String path)
@@ -615,6 +631,9 @@ if (continuesBayesCheckBox){
      * Load test files array list.
      *
      * @return the array list
+     * @throws IOException                  the io exception
+     * @throws ParserConfigurationException the parser configuration exception
+     * @throws SAXException                 the sax exception
      */
     public ArrayList<File> loadTestFiles() throws IOException, ParserConfigurationException, SAXException {
 
@@ -667,6 +686,7 @@ if (continuesBayesCheckBox){
     /**
      * Load test files array list.
      *
+     * @param path the path
      * @return the array list
      */
     public ArrayList<File> loadTestFiles(String path)  {
@@ -686,7 +706,7 @@ if (continuesBayesCheckBox){
     }
 
     /**
-     * Generate bow.
+     * Generate BackgroundWorkerBOW.
      *
      * @throws IOException the io exception
      */
@@ -714,7 +734,7 @@ if (continuesBayesCheckBox){
     }
 
     /**
-     * Generate idf.
+     * Generate BackgroundWorkerIDF.
      *
      * @throws IOException the io exception
      */
@@ -737,7 +757,7 @@ if (continuesBayesCheckBox){
     }
 
     /**
-     * Generate tfidf.
+     * Generate BackgroundWorkerTFIDF.
      *
      * @throws IOException the io exception
      */
@@ -876,7 +896,7 @@ if (continuesBayesCheckBox){
     }
 
     /**
-     * Custom accuracy bow execute.
+     * Custom accuracy BackgroundWorkerBOW execute.
      *
      * @param testData the test data
      * @throws IOException the io exception
@@ -905,7 +925,6 @@ if (continuesBayesCheckBox){
             }
 
 
-            systemOutput.setText(systemOutput.getText()+"File "+testData.indexOf(file)+" finished ..."+"\n" );
             progressBar1.setValue(progressBar1.getValue()+1);
             progressBar1.setString(file.getName());
         }
@@ -920,7 +939,7 @@ if (continuesBayesCheckBox){
     }
 
     /**
-     * Custom accuracy idf execute.
+     * Custom accuracy BackgroundWorkerIDF execute.
      *
      * @param testData the test data
      * @throws IOException the io exception
@@ -953,7 +972,7 @@ if (continuesBayesCheckBox){
 
 
 
-            systemOutput.setText(systemOutput.getText()+"File "+testData.indexOf(file)+" finished ..." +"\n");
+
             progressBar1.setValue(progressBar1.getValue()+1);
             progressBar1.setString(file.getName());
         }
@@ -970,7 +989,7 @@ if (continuesBayesCheckBox){
     }
 
     /**
-     * Custom accuracy tfidf execute.
+     * Custom accuracy BackgroundWorkerTFIDF execute.
      *
      * @param testData the test data
      * @throws IOException the io exception
@@ -988,7 +1007,6 @@ if (continuesBayesCheckBox){
         for (File file:testData)
         {
 
-
             if (customTFIDF !=null)
             {
                 z+=customTFIDF.getAccuracyWithLabFormat(Files.readString(Paths.get(file.getPath())));
@@ -1000,7 +1018,7 @@ if (continuesBayesCheckBox){
             }
 
 
-            systemOutput.setText(systemOutput.getText()+"File "+testData.indexOf(file)+" finished ..." +"\n");
+
             progressBar1.setValue(progressBar1.getValue()+1);
             progressBar1.setString(file.getName());
         }
@@ -1066,7 +1084,7 @@ if (continuesBayesCheckBox){
             }
 
 
-            systemOutput.setText(systemOutput.getText()+"File "+testData.indexOf(file)+" finished ..."+"\n" );
+
             progressBar1.setValue(progressBar1.getValue()+1);
             progressBar1.setString(file.getName());
 
@@ -1085,7 +1103,7 @@ if (continuesBayesCheckBox){
     }
 
     /**
-     * Naive bayes accuracy bow execute.
+     * Naive bayes accuracy BackgroundWorkerBOW execute.
      *
      * @param testData the test data
      * @throws IOException the io exception
@@ -1114,7 +1132,7 @@ if (continuesBayesCheckBox){
 
 
 
-            systemOutput.setText(systemOutput.getText()+"File "+testData.indexOf(file)+" finished ..."+"\n" );
+
             progressBar1.setValue(progressBar1.getValue()+1);
             progressBar1.setString(file.getName());
         }
@@ -1126,7 +1144,7 @@ if (continuesBayesCheckBox){
     }
 
     /**
-     * Naive bayes accuracy idf execute.
+     * Naive bayes accuracy BackgroundWorkerIDF execute.
      *
      * @param testData the test data
      * @throws IOException the io exception
@@ -1154,7 +1172,7 @@ if (continuesBayesCheckBox){
             }
 
 
-            systemOutput.setText(systemOutput.getText()+"File "+testData.indexOf(file)+" finished ..."+"\n" );
+
             progressBar1.setValue(progressBar1.getValue()+1);
             progressBar1.setString(file.getName());
 
@@ -1171,7 +1189,7 @@ if (continuesBayesCheckBox){
     }
 
     /**
-     * Naive bayes accuracy tfidf execute.
+     * Naive bayes accuracy BackgroundWorkerTFIDF execute.
      *
      * @param testData the test data
      * @throws IOException the io exception
@@ -1203,7 +1221,7 @@ if (continuesBayesCheckBox){
             }
 
 
-            systemOutput.setText(systemOutput.getText()+"File "+testData.indexOf(file)+" finished ..." +"\n");
+
             progressBar1.setValue(progressBar1.getValue()+1);
             progressBar1.setString(file.getName());
 
@@ -1218,7 +1236,7 @@ if (continuesBayesCheckBox){
     }
 
     /**
-     * Save bow.
+     * Save BackgroundWorkerBOW.
      *
      * @throws IOException the io exception
      */
@@ -1249,7 +1267,7 @@ if (continuesBayesCheckBox){
     }
 
     /**
-     * Save idf.
+     * Save BackgroundWorkerIDF.
      *
      * @throws IOException the io exception
      */
@@ -1277,7 +1295,7 @@ if (continuesBayesCheckBox){
     }
 
     /**
-     * Save tfidf.
+     * Save BackgroundWorkerTFIDF.
      *
      * @throws IOException the io exception
      */
@@ -1307,8 +1325,9 @@ if (continuesBayesCheckBox){
     }
 
     /**
-     * Save bow.
+     * Save BackgroundWorkerBOW.
      *
+     * @param path the path
      * @throws IOException the io exception
      */
     public void saveBOW(String path) throws IOException {
@@ -1333,8 +1352,9 @@ if (continuesBayesCheckBox){
     }
 
     /**
-     * Save idf.
+     * Save BackgroundWorkerIDF.
      *
+     * @param path the path
      * @throws IOException the io exception
      */
     public void saveIDF(String path) throws IOException {
@@ -1356,8 +1376,9 @@ if (continuesBayesCheckBox){
     }
 
     /**
-     * Save tfidf.
+     * Save BackgroundWorkerTFIDF.
      *
+     * @param path the path
      * @throws IOException the io exception
      */
     public void saveTFIDF(String path) throws IOException {
@@ -1380,7 +1401,7 @@ if (continuesBayesCheckBox){
     }
 
     /**
-     * Load bow.
+     * Load BackgroundWorkerBOW.
      *
      * @throws IOException the io exception
      */
@@ -1510,7 +1531,7 @@ if (continuesBayesCheckBox){
     }
 
     /**
-     * Load tfidf.
+     * Load BackgroundWorkerTFIDF.
      *
      * @throws IOException the io exception
      */
@@ -1575,8 +1596,9 @@ if (continuesBayesCheckBox){
     }
 
     /**
-     * Load bow.
+     * Load BackgroundWorkerBOW.
      *
+     * @param path the path
      * @throws IOException the io exception
      */
     public void loadBOW(String path) throws IOException
@@ -1633,6 +1655,7 @@ if (continuesBayesCheckBox){
     /**
      * Load dif.
      *
+     * @param path the path
      * @throws IOException the io exception
      */
     public void loadDIF(String path) throws IOException
@@ -1688,8 +1711,9 @@ if (continuesBayesCheckBox){
     }
 
     /**
-     * Load tfidf.
+     * Load BackgroundWorkerTFIDF.
      *
+     * @param path the path
      * @throws IOException the io exception
      */
     public void loadTFIDF(String path) throws IOException
@@ -1942,113 +1966,116 @@ if (continuesBayesCheckBox){
     }
 
     /**
-     * Gets custom tfidf.
+     * Gets custom BackgroundWorkerTFIDF.
      *
-     * @return the custom tfidf
+     * @return the custom BackgroundWorkerTFIDF
      */
     public CustomTFIDF getCustomTFIDF() {
         return customTFIDF;
     }
 
     /**
-     * Sets custom tfidf.
+     * Sets custom BackgroundWorkerTFIDF.
      *
-     * @param customTFIDF the custom tfidf
+     * @param customTFIDF the custom BackgroundWorkerTFIDF
      */
     public void setCustomTFIDF(CustomTFIDF customTFIDF) {
         this.customTFIDF = customTFIDF;
     }
 
     /**
-     * Gets custom idf.
+     * Gets custom BackgroundWorkerIDF.
      *
-     * @return the custom idf
+     * @return the custom BackgroundWorkerIDF
      */
     public CustomIDF getCustomIDF() {
         return customIDF;
     }
 
     /**
-     * Sets custom idf.
+     * Sets custom BackgroundWorkerIDF.
      *
-     * @param customIDF the custom idf
+     * @param customIDF the custom BackgroundWorkerIDF
      */
     public void setCustomIDF(CustomIDF customIDF) {
         this.customIDF = customIDF;
     }
 
     /**
-     * Gets custom bow.
+     * Gets custom BackgroundWorkerBOW.
      *
-     * @return the custom bow
+     * @return the custom BackgroundWorkerBOW
      */
     public CustomBOW getCustomBOW() {
         return customBOW;
     }
 
     /**
-     * Sets custom bow.
+     * Sets custom BackgroundWorkerBOW.
      *
-     * @param customBOW the custom bow
+     * @param customBOW the custom BackgroundWorkerBOW
      */
     public void setCustomBOW(CustomBOW customBOW) {
         this.customBOW = customBOW;
     }
 
     /**
-     * Gets naive bayes idf.
+     * Gets naive bayes BackgroundWorkerIDF.
      *
-     * @return the naive bayes idf
+     * @return the naive bayes BackgroundWorkerIDF
      */
     public NaiveBayesIDF getNaiveBayesIDF() {
         return naiveBayesIDF;
     }
 
     /**
-     * Sets naive bayes idf.
+     * Sets naive bayes BackgroundWorkerIDF.
      *
-     * @param naiveBayesIDF the naive bayes idf
+     * @param naiveBayesIDF the naive bayes BackgroundWorkerIDF
      */
     public void setNaiveBayesIDF(NaiveBayesIDF naiveBayesIDF) {
         this.naiveBayesIDF = naiveBayesIDF;
     }
 
     /**
-     * Gets naive bayes tfidf.
+     * Gets naive bayes BackgroundWorkerTFIDF.
      *
-     * @return the naive bayes tfidf
+     * @return the naive bayes BackgroundWorkerTFIDF
      */
     public NaiveBayesTFIDF getNaiveBayesTFIDF() {
         return naiveBayesTFIDF;
     }
 
     /**
-     * Sets naive bayes tfidf.
+     * Sets naive bayes BackgroundWorkerTFIDF.
      *
-     * @param naiveBayesTFIDF the naive bayes tfidf
+     * @param naiveBayesTFIDF the naive bayes BackgroundWorkerTFIDF
      */
     public void setNaiveBayesTFIDF(NaiveBayesTFIDF naiveBayesTFIDF) {
         this.naiveBayesTFIDF = naiveBayesTFIDF;
     }
 
     /**
-     * Gets naive bayes bow.
+     * Gets naive bayes BackgroundWorkerBOW.
      *
-     * @return the naive bayes bow
+     * @return the naive bayes BackgroundWorkerBOW
      */
     public NaiveBayesBOW getNaiveBayesBOW() {
         return naiveBayesBOW;
     }
 
     /**
-     * Sets naive bayes bow.
+     * Sets naive bayes BackgroundWorkerBOW.
      *
-     * @param naiveBayesBOW the naive bayes bow
+     * @param naiveBayesBOW the naive bayes BackgroundWorkerBOW
      */
     public void setNaiveBayesBOW(NaiveBayesBOW naiveBayesBOW) {
         this.naiveBayesBOW = naiveBayesBOW;
     }
 
+    /**
+     * Close.
+     */
     public void close()
     {
         System.exit(0);
